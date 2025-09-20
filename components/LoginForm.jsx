@@ -63,7 +63,7 @@ const LoginForm = () => {
     if (!isFormValid) {
       toast.error("Please fill all the fields correctly to Login.", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: false,
         pauseOnHover: false,
@@ -94,7 +94,7 @@ const LoginForm = () => {
       if (!response.ok) {
         toast.error(result?.message || "Login failed", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: false,
           pauseOnHover: false,
@@ -106,23 +106,12 @@ const LoginForm = () => {
         return;
       }
 
-      toast.success("Logged in successfully!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        transition: Bounce,
-      });
       login(result.accessToken);
       router.push("/home");
     } catch (error) {
       toast.error("An error occurred, please try again later.", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: false,
         pauseOnHover: false,
@@ -136,13 +125,13 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex flex-col gap-2 md:gap-3">
-        <div className="w-full bg-[#f4f4f4] dark:dark:bg-[#3c3c3c] rounded-2xl flex gap-4 items-center py-1 px-2">
+      <div className="flex flex-col gap-1 md:gap-2">
+        <div className="w-full bg-[#f4f4f4] dark:dark:bg-[#3c3c3c] rounded-2xl flex gap-2 items-center py-1 px-2">
           <Image
             src="/account_circle.svg"
             alt="User Icon"
-            width={30}
-            height={30}
+            width={25}
+            height={25}
             className="mr-1 md:mr-3"
           />
           <div className="flex flex-col">
@@ -178,13 +167,13 @@ const LoginForm = () => {
           <Image
             src="/mail.svg"
             alt="Email"
-            width={30}
-            height={30}
+            width={25}
+            height={25}
             className="mr-1 md:mr-3"
           />
           <div className="flex flex-col">
             <label
-              className="text-sm font-medium text-gray-600 dark:text-gray-200 mb-0.5 md:mb-2 block"
+              className="text-sm font-medium text-gray-600 dark:text-gray-200 mb-0.5 block"
               htmlFor="email"
             >
               Email
@@ -211,17 +200,17 @@ const LoginForm = () => {
             Email verified!
           </span>
         )}{" "}
-        <div className="w-full bg-[#f4f4f4] dark:dark:bg-[#3c3c3c] rounded-2xl flex gap-4 items-center py-1 px-2">
+        <div className="w-full bg-[#f4f4f4] dark:dark:bg-[#3c3c3c] rounded-2xl flex gap-2 items-center py-1 px-2">
           <Image
             src="/key.svg"
             alt="Password"
-            width={30}
-            height={30}
+            width={25}
+            height={25}
             className="mr-1 md:mr-3"
           />
           <div className="flex flex-col">
             <label
-              className="text-sm font-medium text-gray-600 dark:text-gray-200 mb-0.5 md:mb-2 block"
+              className="text-sm font-medium text-gray-600 dark:text-gray-200 mb-0.5 block"
               htmlFor="password"
             >
               Password
@@ -238,8 +227,8 @@ const LoginForm = () => {
           <Image
             src="/visibility.svg"
             alt="visible"
-            width={30}
-            height={30}
+            width={25}
+            height={25}
             className="ml-auto cursor-pointer"
             onClick={() => setIsVisible((prev) => !prev)}
           />
@@ -256,11 +245,14 @@ const LoginForm = () => {
           </span>
         )}{" "}
         <div className="flex justify-between">
-          <div className="text-sm md:text-base flex gap-1 md:gap-2 items-center ">
-            <input type="checkbox" className="bg-[#e5e5e5] h-4 w-4" />
+          <div className="text-xs md:text-sm flex gap-1 md:gap-2 items-center ">
+            <input type="checkbox" className="bg-[#e5e5e5] h-3 w-3" />
             <label>Remember me</label>
           </div>
-          <Link href="/" className="text-sm md:text-base text-[var(--color-primary)]">
+          <Link
+            href="/"
+            className="text-xs  md:text-sm text-[var(--color-primary)]"
+          >
             Forgot Password ?
           </Link>
         </div>
