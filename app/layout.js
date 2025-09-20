@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Unstop Login",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
 };
 
 export default function RootLayout({ children }) {
